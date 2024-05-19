@@ -75,6 +75,9 @@ const TableComponent = ({ collection }: any) => {
       <div key={collection?.id} className="mx-auto  ">
         <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden w-full ">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+            <h1 className="text-gray-800 dark:text-gray-300 uppercase font-bold">
+              {collection.title}
+            </h1>
             <div className="w-full md:w-1/2">
               {/* <form className="flex items-center">
                 <label htmlFor="simple-search" className="sr-only">
@@ -132,8 +135,8 @@ const TableComponent = ({ collection }: any) => {
             </div>
           </div>
           <div className="max-h-[82vh] max-w-[90vw] md:w-[90vw] lg:w-full xl:w-full no-scrollbar overflow-x-auto">
-            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table className="w-full text-md text-left text-gray-500 dark:text-gray-400">
+              <thead className="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                   {collection?.colums?.map((colum: IColums) => (
                     <th key={colum.id} scope="col" className="px-4 py-3">
@@ -171,7 +174,7 @@ const TableComponent = ({ collection }: any) => {
         </div>
         <CustomModal openModal={modal} setOpenModal={setModal}>
           <>
-            <Modal.Header>{collection?.title}</Modal.Header>
+            <Modal.Header className="uppercase">Add new entry</Modal.Header>
             <Modal.Body className="space-y-5 ">
               {collection?.colums.map((col: IColums) => (
                 <div key={col.id}>
@@ -191,7 +194,8 @@ const TableComponent = ({ collection }: any) => {
                       ) : (
                         <FloatingLabel
                           variant="outlined"
-                          // name={col.colum}
+                          name={col.colum}
+                          type={col.type}
                           className="dark:bg-gray-800"
                           label={col.colum}
                           onChange={(e) =>
@@ -215,7 +219,7 @@ const TableComponent = ({ collection }: any) => {
         {/* update  */}
         <CustomModal openModal={updateModal} setOpenModal={setUpdateModal}>
           <>
-            <Modal.Header>{collection?.title}</Modal.Header>
+            <Modal.Header className="uppercase">Update now</Modal.Header>
             <Modal.Body className="space-y-5 ">
               {collection?.colums.map((col: IColums) => (
                 <div key={col.id}>

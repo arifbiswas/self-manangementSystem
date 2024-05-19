@@ -54,6 +54,7 @@ export const collectionApi = createApi({
 // auto-generated based on the defined endpoints
 export const {
   useGetCollectoinsQuery,
+  useLazyGetCollectoinsQuery,
   useGetCollectoinQuery,
   useSaveNewPostMutation,
   useUpdatePostMutation,
